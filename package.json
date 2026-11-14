@@ -1,0 +1,27 @@
+{
+  "name": "pkgsentry",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static behavioural analyser for npm package tarballs, with version diffing and simple deobfuscation",
+  "license": "MIT",
+  "bin": {
+    "pkgsentry": "dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node dist/scripts/build-samples.js && node --test dist/test/",
+    "samples": "npm run build && node dist/scripts/build-samples.js",
+    "scan": "node dist/src/index.js scan"
+  },
+  "dependencies": {
+    "acorn": "^8.19.0",
+    "acorn-walk": "^8.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
